@@ -1,25 +1,23 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html>
 <head>
   <meta charset="UTF-8">
-  <title>Teste de Conexão com Backend</title>
+  <title>Teste CORS</title>
 </head>
 <body>
-  <h1>Teste de Backend</h1>
-  <button onclick="buscarDados()">Buscar dados do backend</button>
-  <p id="resposta"></p>
+  <h1>Resultado:</h1>
+  <p id="resultado">Carregando...</p>
 
   <script>
-    function buscarDados() {
-      fetch('https://paineldolords.kinghost.net/painel')
-        .then(response => response.json())
-        .then(data => {
-          document.getElementById('resposta').innerText = data.mensagem;
-        })
-        .catch(error => {
-          document.getElementById('resposta').innerText = 'Erro ao conectar: ' + error;
-        });
-    }
+    fetch("https://paineldolords.kinghost.net/painel")
+      .then(response => response.json())
+      .then(data => {
+        document.getElementById("resultado").textContent = data.mensagem;
+      })
+      .catch(error => {
+        document.getElementById("resultado").textContent = "Erro ao conectar: " + error;
+        console.error(error);
+      });
   </script>
 </body>
 </html>
