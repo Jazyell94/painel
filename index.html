@@ -9,7 +9,7 @@
   <p id="resultado">Carregando...</p>
 
   <script>
-    fetch("https://paineldolords.kinghost.net/painel")
+    fetch("http://paineldolords.kinghost.net/painel")
       .then(response => response.json())
       .then(data => {
         document.getElementById("resultado").textContent = data.mensagem;
