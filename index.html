@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Teste de Conexão com Backend</title>
+</head>
+<body>
+  <h1>Teste de Backend</h1>
+  <button onclick="buscarDados()">Buscar dados do backend</button>
+  <p id="resposta"></p>
+
+  <script>
+    function buscarDados() {
+      fetch('https://paineldolords.kinghost.net/painel')
+        .then(response => response.json())
+        .then(data => {
+          document.getElementById('resposta').innerText = data.mensagem;
+        })
+        .catch(error => {
+          document.getElementById('resposta').innerText = 'Erro ao conectar: ' + error;
+        });
+    }
+  </script>
+</body>
+</html>
